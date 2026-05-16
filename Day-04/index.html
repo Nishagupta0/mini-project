@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulb Turn</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            background-color:crimson;
+            width:100vw;
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .card{
+            background-color:aliceblue;
+            width:400px;
+            height:600px;
+            border-radius:20px;
+            text-align:center;
+            padding-bottom:20px;
+        }
+
+        #bulb{
+            width:100%;
+            height:420px;
+            border-top-left-radius:20px;
+            border-top-right-radius:20px;
+        }
+
+        button{
+            border:none;
+            background:none;
+            cursor:pointer;
+        }
+        #btn{
+            width:120px;
+            transition:0.3s;
+        }
+
+        .on{
+            transform:translateY(10px);
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <img src="off.png" id="bulb">
+        <button onclick="change()">
+            <img src="switch_on.png" id="btn">
+        </button>
+
+    </div>
+
+<script>
+
+    let bulb = document.getElementById("bulb");
+    let btn = document.getElementById("btn");
+
+    const audio = new Audio('click.mp3');
+
+    let light = false;
+
+    function change(){
+        audio.play();
+
+        if(light == false) {
+
+            bulb.src = "on.png";
+            btn.src = "switch_off.png";  
+
+            light = true;
+        }
+        else {
+
+            bulb.src = "off.png";
+            btn.src = "switch_on.png";   
+
+            light = false;
+        }
+    }
+</script>
+
+</body>
+</html>
